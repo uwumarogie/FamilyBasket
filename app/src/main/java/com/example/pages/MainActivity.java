@@ -20,8 +20,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.ActivityMainBinding;
-//import com.example.pages.databinding.ActivityMainBinding;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
