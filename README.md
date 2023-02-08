@@ -1,2 +1,2 @@
 # FamilyBasket
-Creating a grocery list app for the family
+The goal is to create a synchronized Todo-List to share with the family.
