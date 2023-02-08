@@ -1,4 +1,4 @@
-package com.example.familybasket;
+package com.example.pages;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.familybasket.databinding.ActivityMainBinding;
+import com.example.pages.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
