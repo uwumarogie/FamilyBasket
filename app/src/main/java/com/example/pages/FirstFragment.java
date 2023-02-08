@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.pages.databinding.FragmentFirstBinding;
+import com.example.familybasket.R;
+import com.example.familybasket.databinding.FragmentFirstBinding;
+
 
 public class FirstFragment extends Fragment {
 

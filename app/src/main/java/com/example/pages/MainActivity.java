@@ -18,7 +18,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.pages.databinding.ActivityMainBinding;
+import com.example.familybasket.R;
+import com.example.familybasket.databinding.ActivityMainBinding;
+//import com.example.pages.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
@@ -35,18 +37,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initBinding();
         setContentView(binding.getRoot());
+        initToolbar();
         initListView();
         initButton();
         initNavigation();
     }
 
+    /*
+     * This method initializes the binding object using the ActivityMainBinding.inflate method and the getLayoutInflater method.
+     * The binding object is used to access views in the layout.
+     */
+
     public void initBinding () {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
     }
 
+    /*
+     * This method sets the toolbar as the support action bar for the activity.
+     * The binding.toolbar is used to access the toolbar view.
+     */
     public void initToolbar() {
         setSupportActionBar(binding.toolbar);
     }
+
+    /*
+     * This method initializes the button object by finding the view with the id R.id.buttonFirst using the findViewById method.
+     * It then sets an OnClickListener on the button to call the addItem method when the button is clicked.
+     */
 
     public void initButton() {
         button = findViewById(R.id.buttonFirst);
@@ -58,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+     * This method initializes the listView object by finding the view with the id R.id.ListView using the findViewById method.
+     * It then initializes the items list, creates an ArrayAdapter for the list, and sets it as the adapter for the listView.
+     * The method also calls the setUpListViewListener method to set up a listener for the listView.
+     */
+
     public void initListView() {
         listView = findViewById(R.id.ListView);
         button = findViewById(R.id.buttonFirst);
@@ -67,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
         setUpListViewListener();
     }
 
+    /*
+     * Initializes NavController object
+     * Creates AppBarConfiguration object
+     * Sets up action bar with NavController using NavigationUI.setupActionBarWithNavController method
+     */
     public void initNavigation() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();

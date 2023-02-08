@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.pages.databinding.FragmentSecondBinding;
+import com.example.familybasket.R;
+import com.example.familybasket.databinding.FragmentSecondBinding;
+//import com.example.pages.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 
