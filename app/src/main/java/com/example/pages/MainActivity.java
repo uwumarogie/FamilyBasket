@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
      * The binding object is used to access views in the layout.
      */
 
-    public void initBinding () {
+    public void initBinding() {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
     }
 
@@ -119,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
         input.setSelection(input.getText().length());
         String itemText = input.getText().toString();
 
-        if(!(itemText.equals(""))) {
+        if (!(itemText.equals(""))) {
             itemsAdapter.add(itemText);
             input.setText("");
-        }else {
+        } else {
             Toast.makeText(getApplicationContext(), "Please enter text..", Toast.LENGTH_LONG).show();
         }
     }
