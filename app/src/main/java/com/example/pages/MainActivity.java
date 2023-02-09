@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +19,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.ActivityMainBinding;
+
 import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.mongodb.App;
+import io.realm.mongodb.AppConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
     private Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         initListView();
         initButton();
         initNavigation();
+        Realm.init(this);
+        String appID = "familybasket-mzzoj";
+        App app = new App(new AppConfiguration.Builder(appID).build());
     }
 
     /*
@@ -65,12 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initButton() {
         button = findViewById(R.id.buttonFirst);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addItem(view);
-            }
-        });
+        button.setOnClickListener(this::addItem);
     }
 
     /*
@@ -100,16 +103,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpListViewListener() {
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Items Removed", Toast.LENGTH_LONG).show();
+        listView.setOnItemLongClickListener((adapterView, view, position, l) -> {
+            Context context = getApplicationContext();
+            Toast.makeText(context, "Items Removed", Toast.LENGTH_LONG).show();
 
-                items.remove(position);
-                itemsAdapter.notifyDataSetChanged();
-                return true;
-            }
+            items.remove(position);
+            itemsAdapter.notifyDataSetChanged();
+            return true;
         });
     }
 
