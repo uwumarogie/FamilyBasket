@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
         initListView();
         initButton();
         initNavigation();
-        Realm.init(this);
-        String appID = "familybasket-mzzoj";
-        App app = new App(new AppConfiguration.Builder(appID).build());
     }
 
     /*
