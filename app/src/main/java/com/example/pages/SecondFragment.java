@@ -11,8 +11,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.FragmentSecondBinding;
-//import com.example.pages.databinding.FragmentSecondBinding;
-
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;

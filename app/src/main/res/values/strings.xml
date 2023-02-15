@@ -10,4 +10,5 @@
     <string name="groceryList">Grocery List</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="confirm_your_email_address_in_your_mail">Confirm your Email address in your Mail</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
