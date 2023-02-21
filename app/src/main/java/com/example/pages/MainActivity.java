@@ -22,9 +22,6 @@ import com.example.familybasket.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
-import io.realm.Realm;
-import io.realm.mongodb.App;
-import io.realm.mongodb.AppConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,10 +88,12 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Initializes NavController object
      * Creates AppBarConfiguration object
-     * Sets up action bar with NavController using NavigationUI.setupActionBarWithNavController method
+     * Sets up action bar with NavController using NavigationUI.setupActionBarWithNavController
+     *  method
      */
     public void initNavigation() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(
+                this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
@@ -115,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
         EditText input = findViewById(R.id.editTextTextPersonName);
         input.setSelection(input.getText().length());
         String itemText = input.getText().toString();
-
         if (!(itemText.equals(""))) {
             itemsAdapter.add(itemText);
             input.setText("");

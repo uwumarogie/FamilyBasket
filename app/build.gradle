@@ -3,15 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.kapt'
 }
-apply plugin: "realm-android"
-
 
 android {
     namespace 'com.example.familybasket'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.mongodb.example_realm"
+        applicationId "com.example.familybasket"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -34,9 +32,6 @@ android {
         viewBinding true
     }
 }
-realm {
-    syncEnabled = true
-}
 
 dependencies {
 
@@ -57,5 +52,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //noinspection GradleDependency
     implementation 'androidx.core:core-ktx:1.7.0'
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+
 
 }
