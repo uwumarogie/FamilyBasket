@@ -16,12 +16,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -102,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener((adapterView, view, position, l) -> {
             Context context = getApplicationContext();
             Toast.makeText(context, "Items Removed", Toast.LENGTH_LONG).show();
-
             items.remove(position);
             itemsAdapter.notifyDataSetChanged();
             return true;
@@ -113,12 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
         EditText input = findViewById(R.id.editTextTextPersonName);
         input.setSelection(input.getText().length());
-        String itemText = input.getText().toString();
+        String itemText = input.getText().toString().trim();
+
+
         if (!(itemText.equals(""))) {
             itemsAdapter.add(itemText);
             input.setText("");
         } else {
-            Toast.makeText(getApplicationContext(), "Please enter text..", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter text...", Toast.LENGTH_LONG)
+                    .show();
         }
     }
 
@@ -131,22 +131,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
