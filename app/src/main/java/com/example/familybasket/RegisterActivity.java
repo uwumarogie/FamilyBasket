@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.pages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends Activity {
     private EditText editTextEmail, editTextPassword;
-    private Button buttonReg;
+    private Button registerButton;
     private FirebaseAuth firebase;
     private TextView textView;
 
@@ -25,20 +26,11 @@ public class RegisterActivity extends Activity {
         firebase = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.reg_email);
         editTextPassword = findViewById(R.id.password);
-        buttonReg = findViewById(R.id.btn_register);
+        registerButton = findViewById(R.id.btn_register);
         textView = findViewById(R.id.loginNow);
 
-        textView.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-            finish();
-        });
-        buttonReg.setOnClickListener(view -> {
-            String emailInput = String.valueOf(editTextEmail.getText());
-            String passwordInput = String.valueOf(editTextPassword.getText());
-            showErrorMessage(emailInput, passwordInput);
-            loginIntoTheMainActivity(emailInput, passwordInput, firebase);
-        });
+        directToRegister(textView);
+        registerFunctionality(registerButton);
     }
 
 
@@ -50,6 +42,23 @@ public class RegisterActivity extends Activity {
             Toast.makeText(RegisterActivity.this, "Enter your Password",
                     Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void directToRegister(TextView textView) {
+        textView.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+    }
+
+    private void registerFunctionality(Button registerButton) {
+        registerButton.setOnClickListener(view -> {
+            String emailInput = String.valueOf(editTextEmail.getText());
+            String passwordInput = String.valueOf(editTextPassword.getText());
+            showErrorMessage(emailInput, passwordInput);
+            loginIntoTheMainActivity(emailInput, passwordInput, firebase);
+        });
     }
 
     private void loginIntoTheMainActivity(String emailInput, String passwordInput, FirebaseAuth auth) {

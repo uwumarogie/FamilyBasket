@@ -16,11 +16,11 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private Button button;
-
     private Button directToRegister;
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void loginIntoTheMainActivity(String emailInput, String passwordInput, FirebaseAuth auth) {
-
+    private void loginIntoTheMainActivity(String emailInput, String passwordInput,
+                                          FirebaseAuth auth) {
         auth.signInWithEmailAndPassword(emailInput, passwordInput)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -82,8 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void directUserToTheRegisterActivity (Button button) {
-
+    private void directUserToTheRegisterActivity(Button button) {
         button.setOnClickListener(view -> startActivity(new Intent
                 (LoginActivity.this, RegisterActivity.class)));
     }
