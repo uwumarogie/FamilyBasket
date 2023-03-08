@@ -1,6 +1,7 @@
 package com.example.pages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,10 +18,20 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.familybasket.ChooseLoginOption;
+import com.example.familybasket.LoginActivity;
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
     private Button button;
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         initListView();
         initButton();
         initNavigation();
+
+        database = FirebaseDatabase.getInstance(getString(R.string.firebaseUrl));
+        myRef = database.getReference();
     }
 
     /*
@@ -111,16 +127,45 @@ public class MainActivity extends AppCompatActivity {
 
         EditText input = findViewById(R.id.editTextTextPersonName);
         input.setSelection(input.getText().length());
-        String itemText = input.getText().toString().trim();
+        String item = input.getText().toString().trim();
 
 
-        if (!(itemText.equals(""))) {
-            itemsAdapter.add(itemText);
+        /*FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userId = currentUser.getUid();
+        DatabaseReference userTasksRef = database.getReference("tasks").child(userId);
+        userTasksRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Iterate through the user's task data and add it to your app's task list
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors
+            }
+        });*/
+
+
+
+
+
+
+
+
+        pushNewTaskToTheDataBase(item);
+
+        if (!(item.equals(""))) {
+            itemsAdapter.add(item);
             input.setText("");
         } else {
             Toast.makeText(getApplicationContext(), "Please enter text...", Toast.LENGTH_LONG)
                     .show();
         }
+    }
+
+    public void pushNewTaskToTheDataBase(String item) {
+        Task newTask = new Task(item, new Date().toString(),false);
+        myRef.child("tasks").push().setValue(newTask);
     }
 
     @Override
@@ -134,10 +179,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            returnToTheStartPage();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void returnToTheStartPage() {
+        Intent intent = new Intent(getApplicationContext(), ChooseLoginOption.class);
+        startActivity(intent);
+        finish();    }
 
     @Override
     public boolean onSupportNavigateUp() {

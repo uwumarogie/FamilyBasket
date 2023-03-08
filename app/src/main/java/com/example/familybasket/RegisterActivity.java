@@ -61,7 +61,8 @@ public class RegisterActivity extends Activity {
         });
     }
 
-    private void loginIntoTheMainActivity(String emailInput, String passwordInput, FirebaseAuth auth) {
+    private void loginIntoTheMainActivity
+            (String emailInput, String passwordInput, FirebaseAuth auth) {
 
         auth.signInWithEmailAndPassword(emailInput, passwordInput)
                 .addOnCompleteListener(task -> {
