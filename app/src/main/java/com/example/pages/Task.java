@@ -13,12 +13,15 @@ public class Task {
         this.status = status;
     }
 
+    public Task() {
+    }
+
     public String getTasks() {
         return item;
     }
 
     public void setTasks(String tasks) {
-        this.item  = tasks;
+        this.item = tasks;
     }
 
     public String getDate() {
