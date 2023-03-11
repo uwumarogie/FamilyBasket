@@ -15,7 +15,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
-    <string name="click_to_login">Click to login</string>
+    <string name="go_to_login">Go to Login</string>
     <string name="click_to_register">Click to register</string>
     <string name="logout">Logout</string>
     <string name="firebaseUrl">https://familybasket-dbde5-default-rtdb.europe-west1.firebasedatabase.app</string>
