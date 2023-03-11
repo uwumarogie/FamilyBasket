@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends Activity {

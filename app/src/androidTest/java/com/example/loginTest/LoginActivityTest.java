@@ -1,22 +1,13 @@
 package com.example.loginTest;
 
-import static android.app.PendingIntent.getActivity;
-import static android.service.autofill.Validators.not;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static junit.framework.TestCase.assertEquals;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
-import androidx.test.espresso.matcher.RootMatchers;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
