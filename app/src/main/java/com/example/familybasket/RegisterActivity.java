@@ -64,13 +64,13 @@ public class RegisterActivity extends Activity {
     private void loginIntoTheMainActivity
             (String emailInput, String passwordInput, FirebaseAuth auth) {
 
-        auth.signInWithEmailAndPassword(emailInput, passwordInput)
+        auth.createUserWithEmailAndPassword(emailInput, passwordInput)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Toast.makeText(getApplicationContext(), "Register Successful",
                                 Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void showErrorMessage(String emailInput, String passwordInput) {
+    public void showErrorMessage(String emailInput, String passwordInput) {
         if (TextUtils.isEmpty(emailInput) && !TextUtils.isEmpty(passwordInput)) {
             Toast.makeText(LoginActivity.this, "Enter your Email",
                     Toast.LENGTH_SHORT).show();
