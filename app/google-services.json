@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190358765266",
+    "project_id": "familybasket-dbde5",
+    "storage_bucket": "familybasket-dbde5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190358765266:android:24c6a6f0ca46751548f70b",
+        "android_client_info": {
+          "package_name": "com.example.familybasket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190358765266-l4a3bq98sgabgsf14lu6j6e298b41591.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuGoq5V_NkUeQx4mr8V4n5uj3cm1ypaRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190358765266-l4a3bq98sgabgsf14lu6j6e298b41591.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
