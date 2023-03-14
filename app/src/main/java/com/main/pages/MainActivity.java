@@ -1,4 +1,4 @@
-package com.example.pages;
+package com.main.pages;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.familybasket.ChooseLoginOption;
+import com.main.login.ChooseLoginOption;
 import com.example.familybasket.R;
 import com.example.familybasket.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;

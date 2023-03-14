@@ -1,6 +1,5 @@
-package com.example.familybasket;
+package com.main.login;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.familybasket.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends Activity {
