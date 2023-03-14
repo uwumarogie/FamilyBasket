@@ -1,4 +1,4 @@
-package com.example.pages;
+package com.main.pages;
 
 public class Task {
     private String item;

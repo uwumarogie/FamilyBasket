@@ -12,7 +12,7 @@ import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.example.familybasket.LoginActivity;
+import com.main.login.LoginActivity;
 import com.example.familybasket.R;
 import com.google.firebase.auth.FirebaseAuth;
 

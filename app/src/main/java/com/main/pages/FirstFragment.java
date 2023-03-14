@@ -1,4 +1,4 @@
-package com.example.pages;
+package com.main.pages;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
