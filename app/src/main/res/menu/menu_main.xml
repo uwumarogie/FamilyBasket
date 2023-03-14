@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/login_out"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/invite_other_to_the_group"
+        android:orderInCategory="100"
+        android:title="@string/invite_others"
+        app:showAsAction="never" />
 </menu>

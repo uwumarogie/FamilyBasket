@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         initNavigation();
     }
 
-
     private void retrieveDataFromTheDatabase(FirebaseDatabase database) {
 
         DatabaseReference reference = database.getReference("tasks");
